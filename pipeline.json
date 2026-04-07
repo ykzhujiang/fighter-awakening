@@ -35,10 +35,10 @@
       "segments": {
         "Segment 1": {
           "task_id": "cgt-20260407160040-mzj9t",
-          "status": "generating",
-          "video": null,
-          "check_verdict": null,
-          "attempts": 0
+          "status": "done",
+          "video": "output/Segment_1_v1.mp4",
+          "check_verdict": "PASS",
+          "attempts": 1
         },
         "Segment 2": {
           "task_id": "cgt-20260407160041-5qxxk",
