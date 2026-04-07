@@ -1,0 +1,33 @@
+{
+  "project": "废材觉醒",
+  "created_at": "2026-04-07T06:38:51.424734+00:00",
+  "github_repo": "ykzhujiang/废材觉醒",
+  "config": {
+    "theme": "近未来都市，前快递员林远被陨石碎片砸中后觉醒AI战斗系统'破阵'。被误推上地下格斗擂台，对阵2米壮汉'碎骨机'赵铁山。系统实时标注弱点和预判窗口，林远手忙脚乱但精准闪避反击险胜。搞笑密集：林远拎着外卖保温箱上擂台，边挨打边跟系统吵架，系统毒舌吐槽胜率0.7%。赛后赵铁山请吃火锅。悬念：神秘女性苏晚暗中观察，系统检测到同类信号源x3。角色：林远(28岁前快递员短寸头偏瘦，快递工服后换黑色运动装)，破阵(AI系统HUD冷静毒舌)，赵铁山(2米壮汉吃货)，苏晚(冷面运营)。风格：热血+搞笑+逆袭，cinematic action动态光影。",
+    "genre": "action",
+    "style": "realistic",
+    "duration": 180,
+    "characters": 4,
+    "setting": "中国·近未来·都市",
+    "ratio": "9:16",
+    "episode": "ep01"
+  },
+  "status": "not_started",
+  "steps": {
+    "step1b": {
+      "status": "not_started"
+    },
+    "step1.5": {
+      "status": "not_started"
+    },
+    "step3": {
+      "status": "not_started"
+    },
+    "step4": {
+      "status": "not_started"
+    },
+    "step6": {
+      "status": "not_started"
+    }
+  }
+}
