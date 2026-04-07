@@ -12,7 +12,7 @@
     "ratio": "9:16",
     "episode": "ep01"
   },
-  "status": "step4_in_progress",
+  "status": "step4_done",
   "steps": {
     "step1b": {
       "status": "done",
@@ -31,7 +31,7 @@
       "started_at": "2026-04-07T07:34:32.538588+00:00"
     },
     "step4": {
-      "status": "in_progress",
+      "status": "done",
       "segments": {
         "Segment 1": {
           "task_id": "cgt-20260407160040-mzj9t",
@@ -124,7 +124,8 @@
           "attempts": 1
         }
       },
-      "started_at": "2026-04-07T08:00:41.478696+00:00"
+      "started_at": "2026-04-07T08:00:41.478696+00:00",
+      "completed_at": "2026-04-07T08:59:18.126246+00:00"
     },
     "step6": {
       "status": "not_started"

@@ -1,0 +1,97 @@
+{
+  "total_segments": 12,
+  "passed": 11,
+  "failed": 1,
+  "segments": {
+    "Segment 1": {
+      "task_id": "cgt-20260407160040-mzj9t",
+      "status": "done",
+      "video": "output/Segment_1_v1.mp4",
+      "check_verdict": "PASS",
+      "attempts": 1
+    },
+    "Segment 2": {
+      "task_id": "cgt-20260407160041-5qxxk",
+      "status": "done",
+      "video": "output/Segment_2_v2.mp4",
+      "check_verdict": "PASS",
+      "attempts": 2,
+      "retry_task_id": "cgt-20260407162802-jjrcp"
+    },
+    "Segment 3": {
+      "task_id": "cgt-20260407160042-kgshz",
+      "status": "done",
+      "video": "output/Segment_3_v1.mp4",
+      "check_verdict": "PASS",
+      "attempts": 1
+    },
+    "Segment 4": {
+      "task_id": "cgt-20260407160043-4g9wk",
+      "status": "done",
+      "video": "output/Segment_4_v1.mp4",
+      "check_verdict": "PASS",
+      "attempts": 1
+    },
+    "Segment 5": {
+      "task_id": "cgt-20260407160044-h8ldc",
+      "status": "done",
+      "video": "output/Segment_5_v1.mp4",
+      "check_verdict": "BEST_SELECTED",
+      "attempts": 3,
+      "retry_task_id": "cgt-20260407165031-b4dd9"
+    },
+    "Segment 6": {
+      "task_id": "cgt-20260407160046-nbnnx",
+      "status": "done",
+      "video": "output/Segment_6_v1.mp4",
+      "check_verdict": "PASS",
+      "attempts": 1
+    },
+    "Segment 7": {
+      "task_id": "cgt-20260407160047-k6qgt",
+      "status": "done",
+      "video": "output/Segment_7_v2.mp4",
+      "check_verdict": "PASS",
+      "attempts": 2,
+      "retry_task_id": "cgt-20260407163707-hdldv"
+    },
+    "Segment 8": {
+      "task_id": "cgt-20260407160048-d5cqg",
+      "status": "done",
+      "video": "output/Segment_8_v2.mp4",
+      "check_verdict": "PASS",
+      "attempts": 2,
+      "retry_task_id": "cgt-20260407161728-r9z57"
+    },
+    "Segment 9": {
+      "task_id": "cgt-20260407160048-5hq5z",
+      "status": "done",
+      "video": "output/Segment_9_v2.mp4",
+      "check_verdict": "PASS",
+      "attempts": 2,
+      "retry_task_id": "cgt-20260407162345-vf2nq"
+    },
+    "Segment 10": {
+      "task_id": "cgt-20260407160049-mf28t",
+      "status": "done",
+      "video": "output/Segment_10_v1.mp4",
+      "check_verdict": "PASS",
+      "attempts": 1
+    },
+    "Segment 11": {
+      "task_id": "cgt-20260407160050-bmpzq",
+      "status": "done",
+      "video": "output/Segment_11_v2.mp4",
+      "check_verdict": "PASS",
+      "attempts": 2,
+      "retry_task_id": "cgt-20260407162508-rrvnq"
+    },
+    "Segment 12": {
+      "task_id": "cgt-20260407160051-xkbtd",
+      "status": "done",
+      "video": "output/Segment_12_v1.mp4",
+      "check_verdict": "PASS",
+      "attempts": 1
+    }
+  }
+}
