@@ -57,10 +57,10 @@
         },
         "Segment 4": {
           "task_id": "cgt-20260407160043-4g9wk",
-          "status": "generating",
-          "video": null,
-          "check_verdict": null,
-          "attempts": 0
+          "status": "done",
+          "video": "output/Segment_4_v1.mp4",
+          "check_verdict": "PASS",
+          "attempts": 1
         },
         "Segment 5": {
           "task_id": "cgt-20260407160044-h8ldc",
