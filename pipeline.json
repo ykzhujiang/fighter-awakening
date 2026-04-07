@@ -107,10 +107,11 @@
         },
         "Segment 11": {
           "task_id": "cgt-20260407160050-bmpzq",
-          "status": "generating",
-          "video": null,
-          "check_verdict": null,
-          "attempts": 0
+          "status": "retrying",
+          "video": "output/Segment_11_v1.mp4",
+          "check_verdict": "FAIL",
+          "attempts": 1,
+          "retry_task_id": "cgt-20260407162508-rrvnq"
         },
         "Segment 12": {
           "task_id": "cgt-20260407160051-xkbtd",
