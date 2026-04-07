@@ -100,10 +100,10 @@
         },
         "Segment 10": {
           "task_id": "cgt-20260407160049-mf28t",
-          "status": "generating",
-          "video": null,
-          "check_verdict": null,
-          "attempts": 0
+          "status": "done",
+          "video": "output/Segment_10_v1.mp4",
+          "check_verdict": "PASS",
+          "attempts": 1
         },
         "Segment 11": {
           "task_id": "cgt-20260407160050-bmpzq",
