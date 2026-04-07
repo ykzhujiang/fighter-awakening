@@ -115,10 +115,10 @@
         },
         "Segment 12": {
           "task_id": "cgt-20260407160051-xkbtd",
-          "status": "generating",
-          "video": null,
-          "check_verdict": null,
-          "attempts": 0
+          "status": "done",
+          "video": "output/Segment_12_v1.mp4",
+          "check_verdict": "PASS",
+          "attempts": 1
         }
       },
       "started_at": "2026-04-07T08:00:41.478696+00:00"
