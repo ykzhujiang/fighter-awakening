@@ -42,10 +42,10 @@
         },
         "Segment 2": {
           "task_id": "cgt-20260407160041-5qxxk",
-          "status": "retrying",
-          "video": "output/Segment_2_v1.mp4",
-          "check_verdict": "FAIL",
-          "attempts": 1,
+          "status": "done",
+          "video": "output/Segment_2_v2.mp4",
+          "check_verdict": "PASS",
+          "attempts": 2,
           "retry_task_id": "cgt-20260407162802-jjrcp"
         },
         "Segment 3": {
