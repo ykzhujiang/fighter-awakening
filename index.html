@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>废材觉醒 EP01</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card-bg: #161b22;
+  --card-border: #30363d;
+  --text: #e6edf3;
+  --text-secondary: #8b949e;
+  --accent: #58a6ff;
+  --dialogue-bg: rgba(88,166,255,0.08);
+  --dialogue-color: #79c0ff;
+  --part-num-color: #f0883e;
+  --camera-bg: rgba(139,148,158,0.08);
+  --header-gradient: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px;
+}
+/* Header */
+.page-header {
+  background: var(--header-gradient);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #58a6ff, #bc8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.meta-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 99px;
+  background: rgba(88,166,255,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,0.2);
+}
+/* Collapsible sections */
+details {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background: var(--card-bg);
+}
+details summary {
+  padding: 14px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  user-select: none;
+}
+details summary:hover { color: var(--text); }
+details[open] summary { border-bottom: 1px solid var(--card-border); }
+.section-body {
+  padding: 12px 16px;
+}
+/* Character items */
+.char-item {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(48,54,61,0.5);
+  font-size: 14px;
+}
+.char-item:last-child { border-bottom: none; }
+.char-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.char-desc {
+  display: block;
+  margin-top: 4px;
+  margin-left: 16px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+/* Scene items */
+.scene-item {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(48,54,61,0.5);
+  font-size: 14px;
+}
+.scene-item:last-child { border-bottom: none; }
+.scene-desc {
+  display: block;
+  margin-top: 4px;
+  margin-left: 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+/* Segment card */
+.segment-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.segment-card:hover {
+  border-color: rgba(88,166,255,0.4);
+}
+.segment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 8px;
+}
+.segment-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.segment-dur {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: rgba(240,136,62,0.12);
+  color: var(--part-num-color);
+}
+.segment-meta {
+  padding: 0 16px 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+/* Physical state inside segment */
+.segment-card .physical-state {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(139,148,158,0.03);
+}
+.segment-card .physical-state summary {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.ps-item {
+  padding: 4px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+/* Parts */
+.parts-container {
+  padding: 10px 16px 6px;
+}
+.part-line {
+  padding: 8px 0;
+  font-size: 15px;
+  line-height: 1.8;
+  border-bottom: 1px solid rgba(48,54,61,0.3);
+}
+.part-line:last-child { border-bottom: none; }
+.part-num {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--part-num-color);
+  background: rgba(240,136,62,0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.char-tag {
+  font-weight: 600;
+}
+.dialogue {
+  color: var(--dialogue-color);
+  background: var(--dialogue-bg);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-style: italic;
+}
+/* Camera */
+.camera-line {
+  padding: 8px 16px 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--camera-bg);
+  border-top: 1px solid var(--card-border);
+}
+/* Stats */
+.stats-bar {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.stats-bar span {
+  margin: 0 8px;
+}
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .container { padding: 10px; }
+  .page-header { padding: 18px 14px; }
+  .page-header h1 { font-size: 19px; }
+  .part-line { font-size: 14px; }
+  .segment-header { padding: 10px 12px 6px; }
+  .parts-container { padding: 8px 12px 4px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header">
+  <h1>废材觉醒 EP01</h1>
+  <div class="meta-tags">
+    <span class="meta-tag">🎬 realistic</span>
+    <span class="meta-tag">🌍 中国·近未来·都市</span>
+    <span class="meta-tag">🎨 cinematic action film, gritty urban sci-...</span>
+    <span class="meta-tag">📊 12 segments</span>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <span>👤 4 角色</span>
+  <span>🏞️ 4 场景</span>
+  <span>🎬 12 分镜</span>
+</div>
+
+<details>
+  <summary>👤 角色设定 (4)</summary>
+  <div class="section-body"><div class="char-item"><span class="char-dot" style="background:#e74c3c"></span><strong>[林远]</strong><span class="char-desc">28岁男性，身高175cm偏瘦体型，小麦色皮肤，瓜子脸单眼皮高鼻梁，黑色短寸头，身穿带有黄色反光条的破旧外卖骑手工服背心和黑色运动裤</span></div>
+<div class="char-item"><span class="char-dot" style="background:#3498db"></span><strong>[破阵]</strong><span class="char-desc">1岁男性（AI），身高20cm娇小体型，蓝色半透明发光皮肤，东亚面孔方脸五官冷峻线条硬朗，银色发光短发，全息投影形态穿着银色紧身战服</span></div>
+<div class="char-item"><span class="char-dot" style="background:#2ecc71"></span><strong>[赵铁山]</strong><span class="char-desc">35岁男性，身高200cm极其壮硕体型，古铜色皮肤，东亚面孔圆脸大眼粗眉满脸横肉黑色眉毛，光头，上半身赤裸露出肌肉纹身，下半身穿红色格斗短裤</span></div>
+<div class="char-item"><span class="char-dot" style="background:#f39c12"></span><strong>[苏晚]</strong><span class="char-desc">28岁女性，身高170cm高挑纤细体型，白皙皮肤，瓜子脸细长眼红唇冷艳，黑色齐肩直发，穿着剪裁合体的深黑色收腰西装和高跟鞋</span></div>
+</div>
+</details>
+
+<details>
+  <summary>🏞️ 场景描述 (4)</summary>
+  <div class="section-body"><div class="scene-item"><strong>[地下通道-夜]</strong><span class="scene-desc">近未来都市地下通道，光线昏暗，霓虹灯闪烁，墙壁布满涂鸦和裸露的管道，典型的赛博朋克色调，地面潮湿积水</span></div>
+<div class="scene-item"><strong>[地下擂台-内]</strong><span class="scene-desc">巨大的八角笼格斗擂台，顶部强烈的聚光灯垂直打下，周围环境黑暗，观众席隐没在阴影中，笼网上沾着干涸的血迹</span></div>
+<div class="scene-item"><strong>[VIP包厢-内]</strong><span class="scene-desc">位于擂台上方的高级包厢，冷蓝色调环境光，宽大的单向透明玻璃俯瞰下方擂台，放置着真皮沙发，充满高端科技感</span></div>
+<div class="scene-item"><strong>[火锅店-夜]</strong><span class="scene-desc">市井街头的露天火锅大排档，暖黄色钨丝灯光，热气腾腾的红油锅底，简单的塑料桌椅，充满市井烟火气和生活感</span></div>
+</div>
+</details>
+
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 1</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下通道-夜] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#3498db">[破阵]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面中央，站立，右手提着外卖箱，仰头看向上方</div><div class="ps-item">**<span class="char-tag" style="color:#3498db">[破阵]</span>**: 画面左侧，悬浮状态，双手抱胸，面向右侧看着林远</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#e74c3c">[林远]</span>仰头看天花板裂缝，一块蓝色碎片砸中他额头。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#e74c3c">[林远]</span>双手紧紧捂住脑袋，表情痛苦，倒吸一口冷气。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#3498db">[破阵]</span>全息影像在空气中浮现，散发微光，双手抱胸。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#3498db">[破阵]</span>面无表情地说：<span class="dialogue">“系统绑定，宿主战力极低。”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 中景，仰角，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 2</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下擂台-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面左侧，站立，双手抱紧保温箱，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面右侧，站立，双手握拳，面向左侧</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#e74c3c">[林远]</span>满脸迷茫站在擂台中央，紧紧抱住黄色保温箱。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>扭动粗壮脖子发出骨响，嘴角露出狰狞冷笑。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#e74c3c">[林远]</span>的内心独白，低声说：<span class="dialogue">“这哪是送外卖是送命啊！”</span></div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>迈开大步冲向林远，右拳紧握蓄力肌肉隆起。</div>
+
+  </div>
+  <div class="camera-line">🎥 全景，平视角度，推镜头，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 3</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下擂台-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span>, <span class="char-tag" style="color:#3498db">[破阵]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面左侧，蹲着，双手抱头，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面右侧，站立，右手挥空，面向左侧</div><div class="ps-item">**<span class="char-tag" style="color:#3498db">[破阵]</span>**: 画面左上方，悬浮状态，双手抱胸，面向右侧下方</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>巨大右拳猛烈挥出，带起一阵强烈的掌风。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#e74c3c">[林远]</span>双膝发软猛地蹲下，惊险避开这致命的一击。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#3498db">[破阵]</span>全息影像闪烁，<span class="char-tag" style="color:#3498db">[破阵]</span>冷声说：<span class="dialogue">“预测胜率极低。”</span></div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#e74c3c">[林远]</span>一边抱头蹲防，一边大声喊：<span class="dialogue">“你行你上啊！”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 中景，平视角度，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 4</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下擂台-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面左侧，站立身体后仰，双手胡乱挥舞，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面右侧，站立，左脚抬起，面向左侧</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>抬起粗壮的左腿，向林远的胸口狠狠踹去。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#e74c3c">[林远]</span>左眼视网膜上闪过一排红色预警数据光圈。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#e74c3c">[林远]</span>身体本能向后仰倒，左脚滑步向后退出半米。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>怒吼着大声说：<span class="dialogue">“像老鼠一样乱窜，给我死！”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 近景，微仰角，跟镜头，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 5</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下擂台-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#3498db">[破阵]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面左侧，站立，双手护住下巴，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#3498db">[破阵]</span>**: 画面左上方，悬浮状态，右手指向前方，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面右侧，站立身体前倾，双手下垂，面向左侧</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#3498db">[破阵]</span>全息影像抬起右手，指着赵铁山的右侧腋下。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#3498db">[破阵]</span>快速说：<span class="dialogue">“右肋防御盲区，攻击窗口仅有两秒。”</span></div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>用力过猛身体前倾，失去平衡露出致命破绽。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#e74c3c">[林远]</span>紧紧闭上双眼，咬紧牙关，右手握拳开始蓄力。</div>
+
+  </div>
+  <div class="camera-line">🎥 特写，平视角度，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 6</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下擂台-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面左侧，站立，右臂向前伸直，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面右侧，身体后仰，面部扭曲，面向左侧</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#e74c3c">[林远]</span>在极度恐惧中猛然挥出右拳，击中赵铁山下巴。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>双眼瞬间翻白，下巴受到重创，口水飞溅而出。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>庞大的身躯失去支撑，笔直向后方重重倒下。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#e74c3c">[林远]</span>大口喘着粗气，不可思议地低头看着自己右手。</div>
+
+  </div>
+  <div class="camera-line">🎥 中景，平视角度，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 7</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下擂台-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面中央，站立，双手垂下，低头看向下方</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面下半部，躺着，闭眼昏迷，面向上方</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#e74c3c">[林远]</span>手中的黄色外卖保温箱由于惊吓脱手掉在地上。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#e74c3c">[林远]</span>艰难咽了一口唾沫，小声说：<span class="dialogue">“我打败碎骨机了？”</span></div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>平躺在擂台地板上，突然打了一个响亮的呼噜。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#e74c3c">[林远]</span>抹去额头冷汗，长长松了一口气，紧绷双肩垮下。</div>
+
+  </div>
+  <div class="camera-line">🎥 全景，俯视角度，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 8</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [VIP包厢-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#f39c12">[苏晚]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#f39c12">[苏晚]</span>**: 画面中央，坐着，右手端着红酒杯，面向画面左侧全息屏幕</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>坐在真皮沙发上，透过单向玻璃冷冷注视下方。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>轻轻摇晃手中红酒杯，猩红色的酒液快速旋转。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>微微眯起细长的眼睛，嘴角勾起饶有兴致微笑。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>轻声慢语地说：<span class="dialogue">“这外卖员有点意思，查查底细。”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 近景，平视角度，缓慢推镜头，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 9</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [地下擂台-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面左侧，蹲着，双手扶着外卖箱，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面右侧，坐着，揉着下巴，面向左侧</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>艰难从地上坐起来，伸手用力揉着红肿下巴。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#e74c3c">[林远]</span>吓得立刻抱起外卖箱，缩成一团准备随时逃跑。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>肚子发出巨大咕噜声，摸着肚子表情很委屈。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>憨厚地笑着说：<span class="dialogue">“打饿了兄弟，你那外卖卖不卖？”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 中景，平视角度，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 10</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [火锅店-夜] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#2ecc71">[赵铁山]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面左侧，坐着，右手拿着筷子，面向右侧</div><div class="ps-item">**<span class="char-tag" style="color:#2ecc71">[赵铁山]</span>**: 画面右侧，坐着，双手捧着碗，面向左侧</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>大口往嘴里塞着热烫毛肚，满脸幸福的笑容。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#e74c3c">[林远]</span>目瞪口呆地看着他，筷子上夹着的一块肉悬空。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#e74c3c">[林远]</span>干笑着对他说：<span class="dialogue">“铁山大哥，你这饭量真有点惊人。”</span></div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#2ecc71">[赵铁山]</span>含糊不清地说：<span class="dialogue">“不吃饱哪有力气挨你的毒打。”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 中景，平视角度，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 11</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [VIP包厢-内] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#f39c12">[苏晚]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#f39c12">[苏晚]</span>**: 画面中央，站立，双手撑着桌面，面向画面左侧全息屏幕</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>站起身，目光紧紧盯着全息屏幕上的林远数据。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>面前的屏幕上剧烈闪烁着三个红色警告标志。</div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>的眉头微微皱起，眼神瞬间变得极度犀利冰冷。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#f39c12">[苏晚]</span>的内心独白，冷声说：<span class="dialogue">“看来这场好戏才刚刚开始。”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 近景，仰视角度，固定机位，正常速度</div>
+</div>
+
+<div class="segment-card">
+  <div class="segment-header">
+    <span class="segment-num">Segment 12</span>
+    <span class="segment-dur">≤15s</span>
+  </div>
+  <div class="segment-meta">📍 [火锅店-夜] &nbsp;|&nbsp; 👥 <span class="char-tag" style="color:#e74c3c">[林远]</span>, <span class="char-tag" style="color:#3498db">[破阵]</span></div>
+  <details class="physical-state">
+<summary>📐 Physical State</summary>
+<div class="ps-item">**<span class="char-tag" style="color:#e74c3c">[林远]</span>**: 画面中央，坐着，右手拿着筷子停顿，面向画面左侧虚空</div><div class="ps-item">**<span class="char-tag" style="color:#3498db">[破阵]</span>**: 画面左上方，悬浮状态，右手亮出红牌，面向右侧</div>
+</details>
+  <div class="parts-container">
+    <div class="part-line"><span class="part-num">P1</span><span class="char-tag" style="color:#e74c3c">[林远]</span>眼中突然闪过一道极其密集的蓝色瀑布数据流。</div>
+<div class="part-line"><span class="part-num">P2</span><span class="char-tag" style="color:#3498db">[破阵]</span>语气急促地说：<span class="dialogue">“警告，检测到三个高危信号靠近。”</span></div>
+<div class="part-line"><span class="part-num">P3</span><span class="char-tag" style="color:#e74c3c">[林远]</span>嘴角笑容僵住，手中筷子吧嗒一声掉在桌面上。</div>
+<div class="part-line"><span class="part-num">P4</span><span class="char-tag" style="color:#e74c3c">[林远]</span>咬牙切齿地大声说：<span class="dialogue">“这破系统连顿饭都不让吃！”</span></div>
+
+  </div>
+  <div class="camera-line">🎥 特写，平视角度，缓慢推镜头，正常速度</div>
+</div>
+
+
+</div>
+
+<script>
+// Auto-open first segment's physical state on load (optional interactivity)
+document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scroll spy - highlight current segment
+  const cards = document.querySelectorAll('.segment-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.borderColor = 'rgba(88,166,255,0.5)';
+      } else {
+        e.target.style.borderColor = '';
+      }
+    });
+  }, { threshold: 0.3 });
+  cards.forEach(c => observer.observe(c));
+});
+</script>
+</body>
+</html>
