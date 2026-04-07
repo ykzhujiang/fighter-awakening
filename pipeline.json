@@ -12,7 +12,7 @@
     "ratio": "9:16",
     "episode": "ep01"
   },
-  "status": "step3_in_progress",
+  "status": "step4_in_progress",
   "steps": {
     "step1b": {
       "status": "done",
@@ -31,7 +31,94 @@
       "started_at": "2026-04-07T07:34:32.538588+00:00"
     },
     "step4": {
-      "status": "not_started"
+      "status": "in_progress",
+      "segments": {
+        "Segment 1": {
+          "task_id": "cgt-20260407160040-mzj9t",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 2": {
+          "task_id": "cgt-20260407160041-5qxxk",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 3": {
+          "task_id": "cgt-20260407160042-kgshz",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 4": {
+          "task_id": "cgt-20260407160043-4g9wk",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 5": {
+          "task_id": "cgt-20260407160044-h8ldc",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 6": {
+          "task_id": "cgt-20260407160046-nbnnx",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 7": {
+          "task_id": "cgt-20260407160047-k6qgt",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 8": {
+          "task_id": "cgt-20260407160048-d5cqg",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 9": {
+          "task_id": "cgt-20260407160048-5hq5z",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 10": {
+          "task_id": "cgt-20260407160049-mf28t",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 11": {
+          "task_id": "cgt-20260407160050-bmpzq",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        },
+        "Segment 12": {
+          "task_id": "cgt-20260407160051-xkbtd",
+          "status": "generating",
+          "video": null,
+          "check_verdict": null,
+          "attempts": 0
+        }
+      },
+      "started_at": "2026-04-07T08:00:41.478696+00:00"
     },
     "step6": {
       "status": "not_started"
