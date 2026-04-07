@@ -64,10 +64,10 @@
         },
         "Segment 5": {
           "task_id": "cgt-20260407160044-h8ldc",
-          "status": "retrying",
-          "video": "output/Segment_5_v2.mp4",
-          "check_verdict": "FAIL",
-          "attempts": 2,
+          "status": "done",
+          "video": "output/Segment_5_v1.mp4",
+          "check_verdict": "BEST_SELECTED",
+          "attempts": 3,
           "retry_task_id": "cgt-20260407165031-b4dd9"
         },
         "Segment 6": {
