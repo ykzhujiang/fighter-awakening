@@ -70,10 +70,10 @@
         },
         "Segment 6": {
           "task_id": "cgt-20260407160046-nbnnx",
-          "status": "generating",
-          "video": null,
-          "check_verdict": null,
-          "attempts": 0
+          "status": "done",
+          "video": "output/Segment_6_v1.mp4",
+          "check_verdict": "PASS",
+          "attempts": 1
         },
         "Segment 7": {
           "task_id": "cgt-20260407160047-k6qgt",
