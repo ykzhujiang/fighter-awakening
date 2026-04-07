@@ -84,10 +84,11 @@
         },
         "Segment 8": {
           "task_id": "cgt-20260407160048-d5cqg",
-          "status": "generating",
-          "video": null,
-          "check_verdict": null,
-          "attempts": 0
+          "status": "retrying",
+          "video": "output/Segment_8_v1.mp4",
+          "check_verdict": "FAIL",
+          "attempts": 1,
+          "retry_task_id": "cgt-20260407161728-r9z57"
         },
         "Segment 9": {
           "task_id": "cgt-20260407160048-5hq5z",
