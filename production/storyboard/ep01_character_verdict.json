@@ -1,0 +1,86 @@
+{
+  "checked_at": "2026-04-07T06:45:15.460654+00:00",
+  "verdict": "FAIL",
+  "storyboard": "ep01.md",
+  "setting": "中国·近未来·都市",
+  "characters": {
+    "林远": {
+      "completeness": {
+        "pass": true,
+        "missing": []
+      },
+      "image_friendliness": {
+        "pass": true,
+        "vague_terms": []
+      },
+      "setting_consistency": {
+        "pass": true,
+        "note": "Character has East Asian features consistent with setting"
+      },
+      "differentiation": {
+        "pass": true,
+        "similar_to": null
+      }
+    },
+    "破阵": {
+      "completeness": {
+        "pass": true,
+        "missing": []
+      },
+      "image_friendliness": {
+        "pass": true,
+        "vague_terms": []
+      },
+      "setting_consistency": {
+        "pass": false,
+        "note": "Setting '中国·近未来·都市' implies East Asian context but character lacks explicit East Asian feature keywords. Consider adding specific features (e.g. hair color, skin tone) consistent with the setting."
+      },
+      "differentiation": {
+        "pass": true,
+        "similar_to": null
+      }
+    },
+    "赵铁山": {
+      "completeness": {
+        "pass": false,
+        "missing": [
+          "hair"
+        ]
+      },
+      "image_friendliness": {
+        "pass": true,
+        "vague_terms": []
+      },
+      "setting_consistency": {
+        "pass": false,
+        "note": "Setting '中国·近未来·都市' implies East Asian context but character lacks explicit East Asian feature keywords. Consider adding specific features (e.g. hair color, skin tone) consistent with the setting."
+      },
+      "differentiation": {
+        "pass": true,
+        "similar_to": null
+      }
+    },
+    "苏晚": {
+      "completeness": {
+        "pass": true,
+        "missing": []
+      },
+      "image_friendliness": {
+        "pass": true,
+        "vague_terms": []
+      },
+      "setting_consistency": {
+        "pass": true,
+        "note": "Character has East Asian features consistent with setting"
+      },
+      "differentiation": {
+        "pass": true,
+        "similar_to": null
+      }
+    }
+  },
+  "hard_fails": 1,
+  "soft_warnings": 2,
+  "auto_fixed": false,
+  "fix_rounds": 1
+}

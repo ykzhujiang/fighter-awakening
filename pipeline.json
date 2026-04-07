@@ -22,7 +22,9 @@
       "segment_count": 12
     },
     "step1.5": {
-      "status": "not_started"
+      "status": "failed",
+      "started_at": "2026-04-07T06:45:14.737842+00:00",
+      "reason": "character check FAIL after auto-fix"
     },
     "step3": {
       "status": "not_started"
