@@ -12,7 +12,7 @@
     "ratio": "9:16",
     "episode": "ep01"
   },
-  "status": "step1b_done",
+  "status": "step3_in_progress",
   "steps": {
     "step1b": {
       "status": "done",
@@ -27,7 +27,8 @@
       "reason": "character check FAIL after auto-fix"
     },
     "step3": {
-      "status": "not_started"
+      "status": "in_progress",
+      "started_at": "2026-04-07T07:24:26.302611+00:00"
     },
     "step4": {
       "status": "not_started"
